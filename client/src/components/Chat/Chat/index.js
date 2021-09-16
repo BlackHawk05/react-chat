@@ -4,7 +4,7 @@ import autosize from 'autosize'
 import { TodosDispatch } from 'context'
 import ChatList from './ChatList'
 import socket from 'socket'
-import lang from 'lang'
+import lang from 'samples/lang'
 
 class Chat extends React.Component {
 
