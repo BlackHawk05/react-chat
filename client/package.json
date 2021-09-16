@@ -26,8 +26,7 @@
     "watch-css": "npm run build-css && stylus -c -w ./src/css/style.styl --out ./src/css/style.css",
     "start-js": "react-scripts start",
     "start": "env-cmd -f .env.local npm-run-all -p watch-css start-js",
-    "build-js": "react-scripts build",
-    "build": "npm-run-all build-css build-js"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
