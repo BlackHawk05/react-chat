@@ -18,6 +18,7 @@ const authToken = async authCode => {
       'Content-Type': 'application/json',
     }
   })
+  console.log('res:', res.data)
 
   if (res && res.data && res.data.access_token) {
     return getUser(res.data.access_token)
