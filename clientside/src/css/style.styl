@@ -1,0 +1,316 @@
+/*@require './_*.styl'*/
+
+bg-body = #3a3a3a
+bg-content = #484848
+bg-msg-l = #585858
+bg-msg-r = #4b5965
+c-grey = #d2d2d2
+c-blue = #72bcfd
+
+body
+  background-color bg-body
+  color var(--bs-gray-500)
+
+body, html, #root
+  height 100%
+
+textarea
+  background-color bg-msg-l
+  border none
+  outline none
+  width 100%
+  height 100%
+  font-size .9rem
+  color c-grey
+  padding .5rem 2rem .5rem .5rem
+  resize none
+  margin-bottom -10px
+
+.wrapper
+    margin 0 auto
+    max-width 40rem
+
+.content
+  position relative
+  min-width 25rem
+  background-color bg-content
+
+#header
+  color var(--bs-cyan)
+  text-align center
+  padding 2rem 0 2rem 0
+  
+.auth
+  max-width 20rem
+  margin 0 auto
+
+ul
+  padding 0
+  margin 0
+li
+  list-style none
+
+.ico-group
+  background-image url('../img/icon-group.png')
+  background-size 1rem .8rem
+  background-repeat no-repeat
+  width 1rem
+  min-width 1rem
+  height .8rem
+  margin .4rem .3rem 0 0
+.ico-send
+  background-image url('../img/icon-send.png')
+  background-size 1.5rem 1.5rem
+  background-repeat no-repeat
+  width 1.5rem
+  height 1.5rem
+  right .8rem
+  bottom .8rem
+  cursor pointer
+  position absolute
+.ico-send:hover
+  filter grayscale(1)
+
+.users-list
+  position absolute
+  right -10rem
+  width 10rem
+  border-left 1px solid #797979
+  background-color bg-content
+  height 100%
+
+img
+  border none
+
+.msg-content
+  //white-space nowrap
+  padding-left .5rem !important
+  padding-right 1rem !important
+  padding-top .25rem !important
+  padding-bottom .25rem !important
+  margin-bottom .5rem !important
+
+.msg-l:after, .msg-r:after
+  content ' '
+  width 0
+  position absolute
+  bottom 0
+.msg-l:after
+  border-bottom .5rem solid bg-msg-l
+  border-left .5rem solid transparent
+  left -0.5rem
+.msg-r:after
+  border-bottom .5rem solid bg-msg-r
+  border-right .5rem solid transparent
+  right -0.5rem
+.msg-l, .msg-r
+  border-top-left-radius 1.35rem !important
+  border-top-right-radius .35rem !important
+.msg-l
+  background-color bg-msg-l
+  margin-left 1rem !important
+  margin-right 2rem !important
+  border-bottom-right-radius .35rem !important
+  border-bottom-left-radius 0 !important
+.msg-r
+  background-color bg-msg-r
+  margin-right 1rem !important
+  margin-left 2rem !important
+  border-bottom-right-radius 0 !important
+  border-bottom-left-radius .35rem !important
+
+.msg-text
+  word-break break-all
+
+.msg-date
+  font-size .7rem
+  text-align center
+  margin .2rem .5rem 0 0
+  line-height: .65rem
+  
+.user-avatar, .user-avatar > img, .room-avatar, .room-avatar > img, .msg-avatar, .msg-avatar > img
+  width 2rem
+  height 2rem
+  border-radius 2rem
+.user-avatar, .room-avatar, .msg-avatar
+    vertical-align top
+    text-align center
+    font-weight bold
+    min-width 2rem
+.msg-avatar
+  margin .2rem .5rem 0 0
+
+.msg-list
+  height 100%
+  overflow auto
+  font-size .9rem
+  white-space pre-line
+
+#send-form, .send-form
+  height 5rem
+  position absolute
+  bottom 0
+  background-color bg-content
+  width 100%
+
+.vert-t
+  vertical-align top
+
+.rooms-list
+  width 15rem
+  min-width 15rem
+  border-right 1px solid #797979
+  
+.user-item:hover, .rooms-list .act
+  background-color bg-msg-r
+  cursor pointer
+
+li.unread
+  background-color bg-msg-r
+li.read
+  animation read-msg 3s forwards
+@keyframes read-msg
+  0%, 30% {
+    background-color bg-msg-r
+  }
+  100% {
+    background-color bg-content
+  }
+
+.room-item:hover
+  background-color bg-msg-l
+  cursor pointer
+
+.room-header
+  white-space nowrap
+  overflow hidden
+  width 12rem
+
+.room-name
+  color c-grey
+  text-overflow ellipsis
+  overflow hidden
+
+.room-date
+  font-size .8rem !important
+  padding-right .2rem
+  padding-left .2rem
+
+.room-content
+  font-size .9rem
+  //height 1.2rem
+  width 12rem
+  white-space nowrap
+  overflow hidden
+
+.room-msg
+  text-overflow ellipsis
+  overflow hidden
+
+.room-notify
+  background-color #589bff
+  margin-top .1rem
+  border-radius 1rem
+  padding 0 .25rem
+  margin-right .25rem
+  height 1rem
+  font-size .7rem
+  color white
+
+.user-name, .room-msg
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
+.user-name
+  width 10rem
+
+.user-name
+  width 7rem !important
+
+.user-online, .room-online
+  position absolute
+  background-color white
+  width .6rem
+  height .6rem
+  border-radius .7rem
+  border 2px solid bg-content
+  right -.1rem
+  bottom 0
+.user-online.typing, .room-online.typing
+  animation msg-typing 1s infinite
+
+@keyframes msg-typing {
+	0%, 8%, 30%, 37%, 59%, 68% {
+    background-color c-blue
+  }
+	9%, 29%, 38%, 58%, 69%, 100% {
+    background-color bg-content
+  }
+}
+
+.room-online
+  bottom .3rem !important
+
+.b
+  font-weight bold
+
+.brd2-w
+  border 2px solid white
+.brd2-g
+  border 2px solid c-grey
+
+.txt-w
+  color white
+.txt-g
+  color c-grey
+.txt-b
+  color c-blue
+
+.padt-01
+  padding-top .1rem
+.padt-02
+  padding-top .2rem
+
+.padb-5
+  padding-bottom 5rem
+
+.hide
+  display none
+
+.h25
+  height 25rem
+.rel
+  position relative
+.ovf
+  overflow auto
+.ovfh
+  overflow hidden
+.abs
+  position absolute
+
+.right
+  float right !important
+.left
+  float left !important
+
+.dinline
+  display inline-block
+
+
+
+
+
+
+
+
+
+
+/****************************=SCROLLBAR=*/
+::-webkit-scrollbar{  width:8px;  height: 20px;}
+::-webkit-scrollbar-thumb{  border: none;  background-color: #808080;  border-radius: 2px;  -webkit-border-radius: 2px;  -moz-border-radius: 2px;}
+::-webkit-scrollbar-thumb:hover{  border: none;  background-color: #777;}
+::-webkit-scrollbar-track{  background-color: #2f2f2f;}
+::-moz-scrollbar{  width:8px;  height: 20px;}
+::-moz-scrollbar-thumb{  border: none;  background-color: #808080;  border-radius: 2px;  -webkit-border-radius: 2px;  -moz-border-radius: 2px;}
+::-moz-scrollbar-thumb:hover{  border: none;  background-color: #777;}
+::-moz-scrollbar-track{  background-color: #2f2f2f;}
