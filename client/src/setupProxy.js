@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/authchat',
     createProxyMiddleware({
-      target: 'http://react.hl2.su:8080',
+      target: process.env.REACT_APP_SERVER_HOST,
       changeOrigin: true,
     })
   );
